@@ -1,0 +1,68 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"> 
+	<title>slider</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"];
+			var currentImage = 0;
+			$("#img").attr("src", "img/"+images[currentImage]);
+			$("#b").click(function(){
+				if (currentImage != 0){
+					currentImage--;
+					$("#img").fadeToggle("fast");
+					setTimeout(function(){
+						$("#img").attr("src", "img/"+images[currentImage]);
+					}, 200);
+					$("#img").fadeToggle("fast");
+				}
+			});
+			$("#f").click(function(){
+				if (currentImage != images.length - 1){
+					currentImage++;
+					$("#img").fadeToggle("fast");
+					setTimeout(function(){
+						$("#img").attr("src", "img/"+images[currentImage]);
+					}, 200);
+					$("#img").fadeToggle("fast");
+				}
+			});
+		});
+	</script>
+	<style type="text/css">
+		#b, #f{
+		color: #fff;
+		text-decoration: none;
+		user-select: none;
+		background: #d4384c;
+		padding: 5px 10px;
+		border: 1px solid #ff00ff;
+		margin: 10px 5px;
+		}
+	
+		#b:hover, #f:hover {
+		background :#e84c53;
+		cursor: pointer;
+		}
+		#b:active, #f:hover {
+		background :#980043;
+		} 
+		img{
+		height: 400px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="content">
+		<div class="slides">
+			<img id="img" src="" />
+		</div>
+		<div class="buttons">
+			<button id="b">Назад</button>
+			<button id="f">Вперед</button>
+		</div>
+	</div>
+</body>
+</html>
